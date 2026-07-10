@@ -61,8 +61,8 @@
       <FirstLogonCommands>
         <SynchronousCommand wcm:action="add">
           <Order>1</Order>
-          <Description>Run Jomo Windows bootstrap from USB</Description>
-          <CommandLine>cmd.exe /c for %D in (D E F G H I J K L M N O P Q R S T U V W X Y Z) do @if exist %D:\JomoWindows\Run-Bootstrap.cmd call %D:\JomoWindows\Run-Bootstrap.cmd</CommandLine>
+          <Description>Run Windows setup bootstrap from USB</Description>
+          <CommandLine>cmd.exe /c for %D in (D E F G H I J K L M N O P Q R S T U V W X Y Z) do @if exist %D:\WindowsSetup\Run-Bootstrap.cmd call %D:\WindowsSetup\Run-Bootstrap.cmd</CommandLine>
         </SynchronousCommand>
       </FirstLogonCommands>
     </component>

@@ -1,4 +1,4 @@
-# Jomo Windows Setup Kit
+# Windows Setup Kit
 
 This kit turns a clean Windows 11 installation into a configured development machine. It keeps disk selection and account creation interactive, then applies the repeatable work automatically.
 
@@ -8,11 +8,13 @@ This kit turns a clean Windows 11 installation into a configured development mac
 - Skips the forced network/Microsoft-account screens where the current Windows build permits it.
 - Uses Kenya's time zone and British English regional defaults.
 - Removes Edge and a broad list of bundled consumer applications.
-- Disables Copilot, Recall, widgets, Start-menu web search, consumer suggestions, advertising, activity history, cross-device features, telemetry services and OneDrive.
+- Disables Copilot, Recall, widgets, notifications, system sounds, Spotlight, Start-menu web search and recommendations, background apps, Game DVR, error reporting, consumer suggestions, advertising, activity history, cross-device features, telemetry services and OneDrive.
 - Installs the enabled applications in `config/packages.json` with WinGet.
-- Writes a detailed log to `%USERPROFILE%\JomoWindowsSetup\setup.log`.
+- Writes a detailed log to `%USERPROFILE%\WindowsSetup\setup.log`.
 
 Windows Defender, UAC, Windows Update, Microsoft Store and WebView2 remain enabled. Security and shared app runtimes are not bloat.
+
+The defaults are intentionally severe: toast notifications and Notification Centre are disabled. Set `disableNotifications` to `false` in `config/settings.json` if this machine needs calendar, chat or monitoring alerts.
 
 ## Prepare the USB
 
@@ -20,14 +22,14 @@ Windows Defender, UAC, Windows Update, Microsoft Store and WebView2 remain enabl
 2. Write it to a USB drive with Rufus.
 3. In Rufus's **Windows User Experience** dialog, leave every customization box unchecked. Rufus creates its own answer file and it would conflict with this one.
 4. Copy `autounattend.xml` to the root of the Windows USB.
-5. Copy the entire `JomoWindows` folder to the root of the USB. Rename this extracted folder to `JomoWindows` if necessary.
+5. Copy the entire `WindowsSetup` folder to the root of the USB. Rename this extracted folder to `WindowsSetup` if necessary.
 
 The root should look like this:
 
 ```text
 USB:\
 ├── autounattend.xml
-├── JomoWindows\
+├── WindowsSetup\
 │   ├── Run-Bootstrap.cmd
 │   ├── config\
 │   └── scripts\
@@ -43,7 +45,7 @@ USB:\
 4. Keep the USB connected until the first desktop appears.
 5. Connect to the internet. The bootstrap waits for connectivity and should start automatically. Approve its UAC prompt.
 
-If it does not start, open `JomoWindows` on the USB and double-click `Run-Bootstrap.cmd`.
+If it does not start, open `WindowsSetup` on the USB and double-click `Run-Bootstrap.cmd`.
 
 ## Customise the package list
 

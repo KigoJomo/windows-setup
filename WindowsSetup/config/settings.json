@@ -11,6 +11,13 @@
   "disableCrossDeviceFeatures": true,
   "disableAdvertising": true,
   "disableTipsAndSuggestions": true,
+  "disableNotifications": true,
+  "disableSystemSounds": true,
+  "disableLockScreenContent": true,
+  "disableGameDvr": true,
+  "disableBackgroundApps": true,
+  "simplifyTaskbarAndStart": true,
+  "disableWindowsErrorReporting": true,
   "showFileExtensions": true,
   "showHiddenFiles": false,
   "removeEdge": true

@@ -13,13 +13,13 @@ if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administra
 
 $kitRoot = Split-Path -Parent $PSScriptRoot
 $configRoot = Join-Path $kitRoot 'config'
-$stateRoot = Join-Path $env:USERPROFILE 'JomoWindowsSetup'
+$stateRoot = Join-Path $env:USERPROFILE 'WindowsSetup'
 $logPath = Join-Path $stateRoot 'setup.log'
 New-Item -ItemType Directory -Path $stateRoot -Force | Out-Null
 
 Start-Transcript -Path $logPath -Append
 try {
-    Write-Host '=== Jomo Windows Setup ===' -ForegroundColor Cyan
+    Write-Host '=== Windows Setup ===' -ForegroundColor Cyan
     Write-Host "Kit: $kitRoot"
     Write-Host "Log: $logPath"
 
@@ -27,7 +27,7 @@ try {
     $packageConfig = Get-Content (Join-Path $configRoot 'packages.json') -Raw | ConvertFrom-Json
 
     . (Join-Path $PSScriptRoot 'tweaks.ps1')
-    Invoke-JomoTweaks -Settings $settings
+    Invoke-WindowsTweaks -Settings $settings
 
     Write-Host 'Waiting for internet connectivity and WinGet...'
     $deadline = (Get-Date).AddMinutes(20)
