@@ -1,3 +1,3 @@
 # windows-setup
 
-Personal Windows development environment setup scripts, configurations, and notes.
+Windows debloating, customization, and dev tools setup scripts.
