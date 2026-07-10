@@ -1,0 +1,17 @@
+{
+  "removeBundledApps": true,
+  "removeOneDrive": true,
+  "disableCopilot": true,
+  "disableWidgets": true,
+  "disableStartWebSearch": true,
+  "disableConsumerFeatures": true,
+  "reduceTelemetry": true,
+  "disableRecall": true,
+  "disableActivityHistory": true,
+  "disableCrossDeviceFeatures": true,
+  "disableAdvertising": true,
+  "disableTipsAndSuggestions": true,
+  "showFileExtensions": true,
+  "showHiddenFiles": false,
+  "removeEdge": true
+}
