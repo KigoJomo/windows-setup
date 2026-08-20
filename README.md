@@ -1,32 +1,30 @@
 # Windows Setup
 
-An aggressively quiet Windows 11 unattended-install and bootstrap kit. It removes Microsoft's advertising, consumer apps, cloud nags, AI features, telemetry services, notifications, web results and bundled distractions, then installs a development environment automatically.
+My opinionated Windows 11 installer and bootstrap scripts. They remove advertising, bundled consumer apps, cloud prompts, web search, telemetry services, and most notifications, then install a development environment.
 
-It is deliberately aggressive. Microsoft Defender, UAC, Windows Update, the Microsoft Store and WebView2 remain intact because removing security and shared runtimes is not debloating—it is breaking the machine.
+This is intentionally aggressive. It keeps Defender, UAC, Windows Update, the Microsoft Store, and WebView2. Removing those crosses the line from debloating into breaking shared runtimes or basic security.
 
-## Default result
+## What the default setup does
 
-- Local-account-friendly Windows setup with TPM, Secure Boot and RAM bypasses.
-- Edge, OneDrive, Copilot, Recall, Widgets, Teams, Outlook, Xbox, Phone Link, Dev Home, news/weather and other bundled apps removed or disabled.
-- Advertising, notifications, system sounds, Spotlight, suggestions, background apps, Game DVR, error reporting, tailored experiences, activity history, cross-device features, web search and telemetry services disabled.
-- Helium, Git, GitHub CLI, Node.js LTS, pnpm, VS Code, PowerShell 7 and Windows Terminal installed.
-- Disk selection and account naming remain interactive to prevent catastrophic automation.
+- Allows a local account and bypasses TPM, Secure Boot, and RAM checks during setup.
+- Removes or disables Edge, OneDrive, Copilot, Recall, Widgets, Teams, Outlook, Xbox, Phone Link, Dev Home, news, and weather.
+- Turns off advertising, Spotlight, suggestions, background apps, Game DVR, error reporting, activity history, cross-device features, web results, and telemetry services.
+- Installs Helium, Git, GitHub CLI, Node.js LTS, pnpm, VS Code, PowerShell 7, and Windows Terminal.
+- Leaves disk selection and account naming interactive. Automating either is a good way to wipe the wrong disk or create the wrong user.
 
 ## Use it
 
-Read [`WindowsSetup/README.md`](WindowsSetup/README.md) for the USB preparation and installation procedure.
+Start with [WindowsSetup/README.md](WindowsSetup/README.md). It covers USB preparation, the unattended install, and the bootstrap step.
 
-## Configuration
+The settings live in two JSON files.
 
-- [`WindowsSetup/config/settings.json`](WindowsSetup/config/settings.json) controls Windows cleanup.
-- [`WindowsSetup/config/packages.json`](WindowsSetup/config/packages.json) controls application installation.
+- [settings.json](WindowsSetup/config/settings.json) controls Windows cleanup.
+- [packages.json](WindowsSetup/config/packages.json) controls application installation.
 
-All scripts are intended to be idempotent and write a transcript to `%USERPROFILE%\WindowsSetup\setup.log`.
+The scripts are meant to be safe to rerun. They write a transcript to `%USERPROFILE%\WindowsSetup\setup.log`.
 
-## Status
+## Before trusting it
 
-This is an initial implementation. Test it in a disposable VM before using it on real hardware. Windows Setup and Edge removal are moving targets, because apparently installing an operating system needed an adversarial relationship.
+Test the full install in a disposable virtual machine. Microsoft changes package names, policy keys, and protected components often enough that a script which worked last month can fail halfway through today.
 
-## License
-
-MIT
+MIT licensed.
